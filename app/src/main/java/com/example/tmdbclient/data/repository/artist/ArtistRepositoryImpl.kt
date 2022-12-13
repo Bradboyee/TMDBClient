@@ -8,9 +8,9 @@ import com.example.tmdbclient.data.repository.artist.datasource.ArtistRemoteData
 import com.example.tmdbclient.domian.repository.ArtistRepository
 
 class ArtistRepositoryImpl(
-    private val artistCacheDataSource: ArtistCacheDataSource,
     private val artistRemoteDataSource: ArtistRemoteDataSource,
     private val artistLocalDataSource: ArtistLocalDataSource,
+    private val artistCacheDataSource: ArtistCacheDataSource,
 ) : ArtistRepository {
     override suspend fun getArtists(): List<Artist>? {
         return getMovieFromCache()
