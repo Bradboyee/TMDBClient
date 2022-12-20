@@ -5,12 +5,16 @@ import com.example.tmdbclient.domian.usecase.UpdateTvShowUseCase
 import com.example.tmdbclient.presentation.tvshow.TvShowViewModelFactory
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.android.scopes.ActivityScoped
 
 @Module
+@InstallIn(ActivityComponent::class)
 class TvShowModule {
 
     @Provides
-    @TvShowScope
+    @ActivityScoped
     fun provideTvShowViewModelFactory(
         getTvShowUseCase: GetTvShowUseCase,
         updateTvShowUseCase: UpdateTvShowUseCase
